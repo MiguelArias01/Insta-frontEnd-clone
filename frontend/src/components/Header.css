@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 54px;
+  background-color: #fff;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 0 20px;
+}
+
+.logo img {
+  height: 29px;
+}
+
+.search input {
+  height: 28px;
+  border: 1px solid #dbdbdb;
+  background-color: #fafafa;
+  padding: 5px;
+  border-radius: 3px;
+  width: 215px;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.icons img {
+  height: 24px;
+  margin-right: 20px;
+}
