@@ -1,10 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
+import Stories from "./components/Stories/Stories";
 
 function App() {
   return (<>
-  <Header />
+    <Header />
+    <Stories />
+
     </>)
 }
 
