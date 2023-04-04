@@ -1,4 +1,5 @@
-# Instaragm 💩
+
+# Instagram Clone
 
 
 ## `Project Objective`
