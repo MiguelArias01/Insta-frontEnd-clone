@@ -6,11 +6,10 @@ import Posts from "./components/Posts/Posts";
 import SignIn from "./components/SignIn/SignIn";
 
 
-
 const AuthenticationContext = createContext();
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   const handleSignIn = (username, password) => {
     // handle authentication logic here
