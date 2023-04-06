@@ -9,7 +9,7 @@ import SignIn from "./components/SignIn/SignIn";
 const AuthenticationContext = createContext();
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const local = localStorage.getItem('TOKEN')
   const handleSignIn = () => {
     if (local) {
