@@ -3,12 +3,13 @@ import api from './apiConfig.js'
 const LOCALSTORAGE_KEY = 'TOKEN'
 
 export async function signIn(username, password) {
-  const res = await api.post('api/token/', { username, password })
+
+  const res = await api.post('api/login/', { username, password })
+
 
   // If the user exists and the password is correct, store the token in local storage and redirect the user to home.
   if (res.data.token) {
     localStorage.setItem(LOCALSTORAGE_KEY, res.data.token)
-    localStorage.setItem("AVATAR", res.data.avatar)
     return { login: true, message: "Logged in." }
   }
   // If the user does not exist, send user to sign up page.
@@ -21,23 +22,23 @@ export async function signIn(username, password) {
   }
 }
 
-
-export async function signUp(username, password) {
-  const res = await api.post('/auth/signup/', { username, password })
-  console.log(res);
-  // If username already exists, make user choose a new username.
-  if (res.data.usernameExists) {
-    return { login: false, message: "Username already exists. Please choose a new username." }
-  }
-  // If new user is created, store token in local storage and redirect user to homepage.
-  localStorage.setItem(LOCALSTORAGE_KEY, res.data)
-  window.location.replace("/")
-}
-
-export async function getUser() {
-  const res = await api.get(`/user/:username`)
-  console.log(res);
-}
+//
+// export async function signUp(username, password) {
+//   const res = await api.post('/auth/signup/', { username, password })
+//   console.log(res);
+//   // If username already exists, make user choose a new username.
+//   if (res.data.usernameExists) {
+//     return { login: false, message: "Username already exists. Please choose a new username." }
+//   }
+//   // If new user is created, store token in local storage and redirect user to homepage.
+//   localStorage.setItem(LOCALSTORAGE_KEY, res.data)
+//   window.location.replace("/")
+// }
+//
+// export async function getUser() {
+//   const res = await api.get(`/user/:username`)
+//   console.log(res);
+// }
 
 
 export async function getUserProfile(id, body) {
