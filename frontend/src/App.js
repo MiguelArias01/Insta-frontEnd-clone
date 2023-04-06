@@ -10,10 +10,10 @@ const AuthenticationContext = createContext();
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  const local = localStorage.getItem('token')
   const handleSignIn = (username, password) => {
     // handle authentication logic here
-    if (username === 'user' && password === 'password') {
+    if (local) {
       setIsAuthenticated(true);
     }
   };
