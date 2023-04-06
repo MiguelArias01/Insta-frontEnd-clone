@@ -1,4 +1,4 @@
-import {createContext, useState} from 'react';
+import {createContext, useEffect, useState} from 'react';
 import './App.css';
 import Header from "./components/Header/Header";
 import Stories from "./components/Stories/Stories";
@@ -16,6 +16,9 @@ function App() {
       setIsAuthenticated(true);
     }
   };
+  useEffect(() => {
+    handleSignIn();
+  })
 
   return (
     <AuthenticationContext.Provider value={isAuthenticated}>
