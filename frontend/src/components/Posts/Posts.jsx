@@ -47,7 +47,7 @@ function Posts() {
           <div className="border rounded-md shadow-md overflow-hidden w-4/12 m-8">
             <img
               className="object-cover w-half h-64"
-              src={`https://jv-unit-4-project-backend.herokuapp.com${item.image}`}
+              src={item.image}
               alt={item.caption}
             />
             <div className="p-4">
