@@ -1,37 +1,17 @@
-import {createContext, useEffect, useState} from 'react';
-import './App.css';
-import Header from "./components/Header/Header";
-import Stories from "./components/Stories/Stories";
-import Posts from "./components/Posts/Posts";
-import SignIn from "./components/SignIn/SignIn";
-
-
-const AuthenticationContext = createContext();
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Profile from './pages/Profile'
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const local = localStorage.getItem('TOKEN')
-  const handleSignIn = () => {
-    if (local) {
-      setIsAuthenticated(true);
-    }
-  };
-  useEffect(() => {
-    handleSignIn();
-  })
-
   return (
-    <AuthenticationContext.Provider value={isAuthenticated}>
-      {isAuthenticated ? (
-        <>
-    <Header />
-    <Stories />
-    <Posts />
-        </>
-      ) : (
-        <SignIn onSignIn={handleSignIn} />
-      )}
-    </AuthenticationContext.Provider>
-  );
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:username" element={<Profile />} />
+      </Routes>
+    </>
+  )
 }
+
 export default App;
+
