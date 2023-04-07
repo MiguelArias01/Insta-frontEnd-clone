@@ -10,6 +10,7 @@ export async function signIn(username, password) {
   // If the user exists and the password is correct, store the token in local storage and redirect the user to home.
   if (res.data.token) {
     localStorage.setItem(LOCALSTORAGE_KEY, res.data.token)
+    localStorage.setItem('id' ,res.data.id)
     return { login: true, message: "Logged in." }
   }
   // If the user does not exist, send user to sign up page.

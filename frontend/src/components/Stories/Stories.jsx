@@ -31,7 +31,10 @@ function Stories() {
               alt="story"
               onLoad={() => setStories([...stories])}
             />
-              <div className="mt-14 flex justify-center">{story.username}</div>
+              <div className="mt-14 flex justify-center">
+                    <span className="font-thin text-ms">{story.username}</span>
+              </div>
+
           </div>
         ))}
       </div>
