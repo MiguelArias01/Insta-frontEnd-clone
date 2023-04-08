@@ -13,24 +13,22 @@ export default function Profile() {
   const token = localStorage.getItem('TOKEN')
 
   const { username } = useParams()
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
     const workAround = async () => {
       const res = await getUserProfile(username)
       setUserInfo(res)
-      console.log(res);
     };
     workAround();
   }, [])
-
   return (
-    <>
-      <TopNav></TopNav>
-      <UserInfo></UserInfo>
+    <div>
+      <TopNav user={username}></TopNav>
+      <UserInfo user={username} avatar={userInfo.avatar} first={userInfo.first} last={userInfo.last} bio={userInfo.bio} posts={userInfo.posts ? userInfo.posts.length : 0}></UserInfo>
       <Filter></Filter>
       <Grid></Grid>
       <Footer></Footer>
-    </>
+    </div>
   )
 }
