@@ -23,12 +23,12 @@ export default function Profile() {
     workAround();
   }, [])
   return (
-    <div>
+    <div className="relative">
       <TopNav user={username}></TopNav>
-      <UserInfo user={username} avatar={userInfo.avatar} first={userInfo.first} last={userInfo.last} bio={userInfo.bio} posts={userInfo.posts ? userInfo.posts.length : 0}></UserInfo>
+      <UserInfo user={username} avatar={userInfo.avatar ? userInfo.avatar : "https://www.dmu.edu/wp-content/uploads/bb-plugin/cache/default-profile-500x500-square.jpg"} first={userInfo.first} last={userInfo.last} bio={userInfo.bio} posts={userInfo.posts ? userInfo.posts.length : 0}></UserInfo>
       <Filter></Filter>
-      <Grid></Grid>
-      <Footer></Footer>
+      <Grid posts={userInfo.posts ? userInfo.posts : []}></Grid>
+      <Footer avatar={userInfo.avatar ? userInfo.avatar : "https://www.dmu.edu/wp-content/uploads/bb-plugin/cache/default-profile-500x500-square.jpg"}></Footer>
     </div>
   )
 }
