@@ -4,7 +4,10 @@ export default async function getUserProfile(username, posts = []) {
   const getProfile = await api.get(`api/users/${username}`)
   const res = await extractData(getProfile)
   const getPosts = await api.get(`api/posts/${res.id}`);
-  getPosts.data.forEach((post) => posts.push(post.image));
+  getPosts.data.forEach((post) => {
+    posts.push({ url: post.image, comments: post.comments, likes: post.liked_by, dislikes: post.dislike_by })
+  });
+
   res.posts = posts
   return res
 }

@@ -10,7 +10,6 @@ import { useParams } from "react-router-dom";
 import getUserProfile from '../api/profile.js'
 
 export default function Profile() {
-  const token = localStorage.getItem('TOKEN')
 
   const { username } = useParams()
   const [userInfo, setUserInfo] = useState({});

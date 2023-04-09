@@ -10,7 +10,7 @@ export default function TopNav(username) {
 
   return (
     <>
-      <div className="bg-white w-full h-auto border-b border-zinc-200 text-center font-sans font-semibold py-2 fixed l-0 z-10">
+      <div className="bg-white w-full h-auto border-b border-zinc-200 text-center font-sans font-semibold py-2 fixed l-0 z-40">
         <span className="inline-block   absolute left-4 top-2.5 -rotate-90 hover:cursor-pointer" onClick={handleGoBack}>
           <svg aria-label="Back" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24">
             <title>Back</title>
