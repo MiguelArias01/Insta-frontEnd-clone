@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import createPost from '../../api/newPost.js'
