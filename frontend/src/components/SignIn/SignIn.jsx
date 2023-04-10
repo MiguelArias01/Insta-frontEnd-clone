@@ -17,6 +17,7 @@ function SignIn({ onSignIn }) {
   };
 
   return (
+
     < form onSubmit={handleSubmit} className=" m-60  max-w-sm mx-auto">
       <div className="mb-4">
         <label htmlFor="username" className="block mb-2 font-semibold">Username:</label>
@@ -29,6 +30,7 @@ function SignIn({ onSignIn }) {
       <button type="submit" className="w-full py-2 px-4 text-white bg-blue-500 rounded-md hover:bg-blue-600">Sign In</button>
         <Link className="block text-center text-gray-500 font-medium mt-4" to={'new/sign-up'}>Sign Up?</Link>
     </form>
+
   );
 }
 

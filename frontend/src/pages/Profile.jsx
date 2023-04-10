@@ -3,6 +3,7 @@ import Footer from "../components/Profile/Footer"
 import Grid from "../components/Profile/Grid"
 import TopNav from "../components/Profile/TopNav"
 import UserInfo from "../components/Profile/UserInfo"
+import SignIn from "../components/SignIn/SignIn";
 
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
@@ -21,13 +22,21 @@ export default function Profile() {
     };
     workAround();
   }, [])
+
   return (
-    <div className="relative">
-      <TopNav user={username}></TopNav>
-      <UserInfo user={username} avatar={userInfo.avatar ? userInfo.avatar : "https://www.dmu.edu/wp-content/uploads/bb-plugin/cache/default-profile-500x500-square.jpg"} first={userInfo.first} last={userInfo.last} bio={userInfo.bio} posts={userInfo.posts ? userInfo.posts.length : 0}></UserInfo>
-      <Filter></Filter>
-      <Grid posts={userInfo.posts ? userInfo.posts : []}></Grid>
-      <Footer avatar={localStorage.getItem('userAvatar')}></Footer>
-    </div>
+    localStorage.getItem('TOKEN') ?
+      (
+        <div className="relative">
+          <TopNav user={username}></TopNav>
+          <UserInfo user={username} avatar={userInfo.avatar ? userInfo.avatar : "https://www.dmu.edu/wp-content/uploads/bb-plugin/cache/default-profile-500x500-square.jpg"} first={userInfo.first} last={userInfo.last} bio={userInfo.bio} posts={userInfo.posts ? userInfo.posts.length : 0}></UserInfo>
+          <Filter></Filter>
+          <Grid posts={userInfo.posts ? userInfo.posts : []}></Grid>
+          <Footer avatar={localStorage.getItem('userAvatar')}></Footer>
+        </div>
+      ) :
+      (
+        <div>hi bitch</div>
+      )
+
   )
 }
