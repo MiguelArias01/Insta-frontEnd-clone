@@ -9,8 +9,10 @@ export async function signIn(username, password) {
 
   // If the user exists and the password is correct, store the token in local storage and redirect the user to home.
   if (res.data.token) {
+    const userAvatar = await api.get(`api/users/${username}`)
+    localStorage.setItem('userAvatar', userAvatar.data.profile.profile_picture)
     localStorage.setItem(LOCALSTORAGE_KEY, res.data.token)
-    localStorage.setItem('id' ,res.data.id)
+    localStorage.setItem('id', res.data.id)
     return { login: true, message: "Logged in." }
   }
   // If the user does not exist, send user to sign up page.

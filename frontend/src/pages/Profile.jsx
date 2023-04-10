@@ -27,7 +27,7 @@ export default function Profile() {
       <UserInfo user={username} avatar={userInfo.avatar ? userInfo.avatar : "https://www.dmu.edu/wp-content/uploads/bb-plugin/cache/default-profile-500x500-square.jpg"} first={userInfo.first} last={userInfo.last} bio={userInfo.bio} posts={userInfo.posts ? userInfo.posts.length : 0}></UserInfo>
       <Filter></Filter>
       <Grid posts={userInfo.posts ? userInfo.posts : []}></Grid>
-      <Footer avatar={userInfo.avatar ? userInfo.avatar : "https://www.dmu.edu/wp-content/uploads/bb-plugin/cache/default-profile-500x500-square.jpg"}></Footer>
+      <Footer avatar={localStorage.getItem('userAvatar')}></Footer>
     </div>
   )
 }

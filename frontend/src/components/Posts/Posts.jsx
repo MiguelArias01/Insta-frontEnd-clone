@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getMainFeed,createComment } from '../../api/mainfeed';
+import { getMainFeed, createComment } from '../../api/mainfeed';
 
 function Posts() {
   const [data, setData] = useState([]);
@@ -30,14 +30,14 @@ function Posts() {
   function handleScroll() {
     if (
       window.innerHeight + document.documentElement.scrollTop ===
-        document.documentElement.offsetHeight &&
+      document.documentElement.offsetHeight &&
       !endReached
     ) {
       fetchData();
     }
   }
 
-  async function handleSubmit(e, postIndex,postarray) {
+  async function handleSubmit(e, postIndex, postarray) {
     e.preventDefault();
     let postId = postarray[postIndex].id;
 
@@ -62,7 +62,7 @@ function Posts() {
 
   return (
     <div className="flex flex-col items-center">
-      {data.map((item, index,array) => (
+      {data.map((item, index, array) => (
         <div className="border rounded-md shadow-md overflow-hidden w-4/12 m-8" key={index}>
           <img className="object-cover h-64 w-full" src={item.image} alt={item.caption} />
           <div className="p-4">
