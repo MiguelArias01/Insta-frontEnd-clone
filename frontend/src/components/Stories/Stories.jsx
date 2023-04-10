@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getUser, getMainFeed } from "../../api/mainfeed";
+import {Link} from "react-router-dom";
 
 function Stories() {
   const [stories, setStories] = useState([]);
@@ -25,12 +26,14 @@ function Stories() {
             key={index}
             className="relative w-14 h-14 mr-2 mb-2 rounded-full bg-gradient-to-tr from-yellow-400 to-pink-500 cursor-pointer"
           >
+            <Link to={`/${story.username}`}>
             <img
               className="absolute top-0 left-0 w-full h-full object-cover rounded-full filter brightness-75 border-1 "
               src={story.profileImage}
               alt="story"
               onLoad={() => setStories([...stories])}
             />
+            </Link>
               <div className="mt-14 flex justify-center">
                     <span className="font-thin text-ms">{story.username}</span>
               </div>

@@ -27,13 +27,14 @@ function Post({ post, onSubmit }) {
         ))}
         <form onSubmit={handleSubmit}>
           <input
+            className="w-full py-2 px-4 border border-gray-300 rounded-md"
             type="text"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             placeholder="Add a comment..."
           />
           <button className="w-full py-2 px-4 text-white bg-blue-500 rounded-md hover:bg-blue-600" type="submit">
-            Post
+            Post comment
           </button>
         </form>
       </div>
