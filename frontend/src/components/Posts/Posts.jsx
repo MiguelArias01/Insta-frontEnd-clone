@@ -4,40 +4,51 @@ import { getMainFeed, createComment } from '../../api/mainfeed';
 function Post({ post, onSubmit }) {
   const [comment, setComment] = useState('');
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    onSubmit(post.id, comment);
-    setComment('');
+  function handleSubmit() {
+    onSubmit(post.id, comment)
   }
 
   return (
-    <div className="border rounded-md shadow-md overflow-hidden w-4/12 m-8">
-      <img className="object-cover h-64 w-full" src={post.image} alt={post.caption} />
-      <div className="p-4">
-        <h2 className="text-sm font-sans font-medium mb-2">{post.caption}</h2>
-        <p className="text-gray-600">
-          Author: {post.author.profile.firstName} {post.author.profile.lastName}
+    <div className=" w-3/4 my-8">
+      <div style={{ backgroundImage: `url(${post.image})`, backgroundPosition: "center", backgroundSize: "cover" }} className="pb-[100%] relative flex justify-center items-center rounded-sm mb-2">
+      </div>
+      <div className="w-full flex justify-between text-2xl mb-4">
+        <div>
+          <div className="hover:cursor-pointer hover:scale-110 inline-block pr-4">💛</div>
+          <div className="hover:cursor-pointer hover:scale-110 inline-block pr-4">💩</div>
+          <div className="hover:cursor-pointer hover:scale-110 inline-block">🔗</div>
+        </div>
+        <div className="hover:cursor-pointer hover:scale-110 inline-block">🗃️</div>
+      </div>
+      <div>
+        <p>
+          <span className="text-sm leading-[18px] font-sans font-semibold mb-2 pr-2 block">{post.liked_by.length === 1 ? post.liked_by.length + " like" : post.liked_by.length + " likes"}, {post.dislike_by.length === 1 ? post.dislike_by.length + " dislike" : post.dislike_by.length + " dislikes"}</span>
+          <span className="text-sm leading-[18px] font-sans font-semibold mb-2 pr-2">{post.author.username}</span>
+          <span className="text-sm leading-[18px] font-sans font-normal">{post.caption}</span>
         </p>
       </div>
       <div>
         {post.comments.map((comment, commentIndex) => (
-          <div className="flex justify-center" key={commentIndex}>
-            <div>{comment.text}</div>
+          <div key={commentIndex}>
+            <p>
+              <span className="text-sm leading-[18px] font-sans font-semibold mb-2 pr-2">{comment.user.username}</span>
+              <span className="text-sm leading-[18px] font-sans font-normal mb-2 pr-2">{comment.text}</span>
+            </p>
+            {/* <div>{comment.text}</div> */}
           </div>
         ))}
-        <form onSubmit={handleSubmit}>
+        <div className="flex">
           <input
-            className="w-full py-2 px-4 border border-gray-300 rounded-md"
+            placeholder="Add a comment..."
+            className="w-full py-2 text-sm leading-[18px] font-sans font-normal focus:outline-none"
             type="text"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            placeholder="Add a comment..."
           />
-          <button className="w-full py-2 px-4 text-white bg-blue-500 rounded-md hover:bg-blue-600" type="submit">
-            Post comment
-          </button>
-        </form>
+          <span onClick={handleSubmit} className="text-xl hover:cursor-pointer hover:scale-110">💬</span>
+        </div>
       </div>
+      <div className="border-b border-slate-200 mt-6"></div>
     </div>
   );
 }
@@ -54,7 +65,6 @@ function Posts() {
   async function fetchData() {
     try {
       const newData = await getMainFeed(page);
-      console.log(newData);
       if (newData.length === 0) {
         setEndReached(true);
       } else {

@@ -34,6 +34,8 @@ export default function Footer(avatar) {
     const res = await createPost(file, caption)
     if (res) {
       closeModal()
+      navigate("/")
+
     }
   }
 

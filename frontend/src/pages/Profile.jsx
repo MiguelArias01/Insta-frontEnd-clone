@@ -6,7 +6,7 @@ import UserInfo from "../components/Profile/UserInfo"
 import SignIn from "../components/SignIn/SignIn";
 
 import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import getUserProfile from '../api/profile.js'
 
@@ -15,7 +15,6 @@ export default function Profile() {
   const { username } = useParams()
   const [userInfo, setUserInfo] = useState({});
   const [loggedIn, setLoggedIn] = useState();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const workAround = async () => {
