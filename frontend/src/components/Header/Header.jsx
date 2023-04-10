@@ -3,31 +3,12 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="bg-white border-b border-gray-300 fixed top-0 inset-x-0 z-10">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center py-3 md:justify-start md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#">
-              <img
-                className="h-8 w-auto sm:h-10"
-                src="https://i.ibb.co/9tZHZy6/Screenshot-2023-03-31-at-16-24-05.png"
-                alt="Instagram logo"
-              />
-            </a>
-          </div>
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <img
-              className="h-6 w-6 mr-6"
-              src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
-              alt="Like icon"
-            />
-            <img
-              className="h-6 w-6"
-              src="https://cdn-icons-png.flaticon.com/512/1370/1370907.png"
-              alt="Messages icon"
-            />
-          </div>
-        </div>
+    <div className="bg-white border-b border-slate-200 fixed top-0 inset-x-0 z-10 h-[59px]">
+      <div className="w-full mx-auto px-4">
+        <a href="#">
+          <img className="w-[103px] absolute top-5" src="https://res.cloudinary.com/dnld1cqvy/image/upload/v1681157937/logo_w2b8wx.png" alt="Instagram logo" />
+        </a>
+        <span className="text-3xl absolute top-3 right-4">💩</span>
       </div>
     </div>
   );

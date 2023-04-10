@@ -6,8 +6,7 @@ import createPost from '../../api/newPost.js'
 
 export default function Footer(avatar) {
   let [isOpen, setIsOpen] = useState(false)
-
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   function closeModal() {
     setIsOpen(false)
@@ -40,7 +39,8 @@ export default function Footer(avatar) {
 
   function handleLogout() {
     localStorage.clear()
-    navigate('/');
+    window.location.href = '/';
+    window.location.reload(true);
   }
 
   return (
@@ -63,7 +63,7 @@ export default function Footer(avatar) {
         <div className="inline-block h-12 p-3 hover:cursor-pointer hover:scale-110">
           <svg aria-label="Messenger" class="x1lliihq x1n2onr6" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><title>Messenger</title><path d="M12.003 2.001a9.705 9.705 0 1 1 0 19.4 10.876 10.876 0 0 1-2.895-.384.798.798 0 0 0-.533.04l-1.984.876a.801.801 0 0 1-1.123-.708l-.054-1.78a.806.806 0 0 0-.27-.569 9.49 9.49 0 0 1-3.14-7.175 9.65 9.65 0 0 1 10-9.7Z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.739"></path><path d="M17.79 10.132a.659.659 0 0 0-.962-.873l-2.556 2.05a.63.63 0 0 1-.758.002L11.06 9.47a1.576 1.576 0 0 0-2.277.42l-2.567 3.98a.659.659 0 0 0 .961.875l2.556-2.049a.63.63 0 0 1 .759-.002l2.452 1.84a1.576 1.576 0 0 0 2.278-.42Z" fill-rule="evenodd"></path></svg>
         </div>
-        <div className="inline-block h-12 p-3 z-index 50">
+        <div className="inline-block h-12 p-3 ">
           <Menu>
             <Menu.Button>
               <img src={avatar.avatar} alt="Avatar" className=" rounded-full w-[24px] h-[24px] border border-slate-200 hover:scale-110 hover:cursor-pointer" />
@@ -77,7 +77,6 @@ export default function Footer(avatar) {
               </Menu.Item>
             </Menu.Items>
           </Menu>
-
         </div>
 
       </div >

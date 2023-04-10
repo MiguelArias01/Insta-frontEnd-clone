@@ -4,6 +4,7 @@ import Header from "../components/Header/Header";
 import Stories from "../components/Stories/Stories";
 import Posts from "../components/Posts/Posts";
 import SignIn from "../components/SignIn/SignIn";
+import Footer from '../components/Profile/Footer';
 
 
 const AuthenticationContext = createContext();
@@ -27,6 +28,7 @@ export default function Home() {
           <Header />
           <Stories />
           <Posts />
+          <Footer avatar={localStorage.getItem('userAvatar')}></Footer>
         </>
       ) : (
         <SignIn onSignIn={handleSignIn} />
