@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getMainFeed, createComment } from '../../api/mainfeed';
+import like from '../Likes/like.jsx';
 
 function Post({ post, onSubmit }) {
   const [comment, setComment] = useState('');
@@ -115,6 +116,10 @@ function Posts() {
               Author: {item.author.profile.firstName} {item.author.profile.lastName}
             </p>
           </div>
+
+
+
+
           <div>
             {item.comments.map((comment, commentIndex) => (
               <div className="flex justify-center" key={commentIndex}>
