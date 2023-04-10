@@ -29,12 +29,12 @@ export async function signIn(username, password) {
 export async function signUp(body) {
   const {username,password,email } = body
   const newBody = {
-    "username": username,
-    "email": password,
-    "password": email
+    username,
+    password,
+    email,
   }
-  console.log(newBody)
-  const res = await api.post('api/sign-up/', { newBody })
+
+  const res = await api.post('api/sign-up/',  newBody)
 
   console.log(res);
   // If username already exists, make user choose a new username.
