@@ -41,10 +41,6 @@ function Posts() {
     e.preventDefault();
     let postId = postarray[postIndex].id;
 
-    console.log(postarray[postIndex].id);
-
-
-
     const newComment = {
       comment: commentText,
       post_id: postId,
