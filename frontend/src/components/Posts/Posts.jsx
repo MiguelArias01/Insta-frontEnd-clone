@@ -14,7 +14,7 @@ function Post({ post, onSubmit }) {
     <div className="border rounded-md shadow-md overflow-hidden w-4/12 m-8">
       <img className="object-cover h-64 w-full" src={post.image} alt={post.caption} />
       <div className="p-4">
-        <h2 className="text-lg font-medium mb-2">{post.caption}</h2>
+        <h2 className="text-sm font-sans font-medium mb-2">{post.caption}</h2>
         <p className="text-gray-600">
           Author: {post.author.profile.firstName} {post.author.profile.lastName}
         </p>

@@ -39,7 +39,8 @@ export default function Footer(avatar) {
 
   function handleLogout() {
     localStorage.clear()
-    navigate("/")
+    window.location.href = '/';
+    window.location.reload(true);
   }
 
   return (
