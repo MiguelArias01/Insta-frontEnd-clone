@@ -37,17 +37,25 @@ function LikeDislikeButtons(postId, userId) {
 
   return (
     <div class="buttons-container">
-      {/* <p>{likes}</p> */}
-      <button onClick={handleLikeClick} disabled={isLiked}>
-        {isLiked ? '💛' : '💛'}
-        <p>{likes}</p>
-      </button>
+      <div className="border rounded-md shadow-md overflow-hidden w-4/12 m-8">
 
-      {/* <p>{dislikes}</p> */}
-      <button onClick={handleDislikeClick} disabled={isDisliked}>
-        {isDisliked ? '💩' : '💩'}
-        <p>{dislikes}</p>
-      </button>
+        <div>
+          <div className="flex justify-between mt-2">
+            {/* <like postId={postId} userId={localStorage.getItem('id')} /> */}
+
+          </div>
+        </div>
+
+        <button onClick={handleLikeClick} disabled={isLiked}>
+          {isLiked ? '💛' : '💛'}
+          <p>{likes}</p>
+        </button>
+
+        <button onClick={handleDislikeClick} disabled={isDisliked}>
+          {isDisliked ? '💩' : '💩'}
+          <p>{dislikes}</p>
+        </button>
+      </div>
     </div>
   );
 }
