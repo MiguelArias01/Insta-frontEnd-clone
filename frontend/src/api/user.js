@@ -13,6 +13,7 @@ export async function signIn(username, password) {
     localStorage.setItem('userAvatar', userAvatar.data.profile.profile_picture)
     localStorage.setItem(LOCALSTORAGE_KEY, res.data.token)
     localStorage.setItem('id', res.data.id)
+    localStorage.setItem('username', res.data.username)
     return { login: true, message: "Logged in." }
   }
   // If the user does not exist, send user to sign up page.
@@ -27,14 +28,14 @@ export async function signIn(username, password) {
 
 
 export async function signUp(body) {
-  const {username,password,email } = body
+  const { username, password, email } = body
   const newBody = {
     username,
     password,
     email,
   }
 
-  const res = await api.post('api/sign-up/',  newBody)
+  const res = await api.post('api/sign-up/', newBody)
 
   console.log(res);
   // If username already exists, make user choose a new username.

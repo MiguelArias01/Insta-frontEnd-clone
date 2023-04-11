@@ -12,6 +12,6 @@ export async function getUser(username) {
 
 
 export async function createComment(body) {
-  const res = api.post(`api/create-comment/`, body);
-return res.data;
+  const res = await api.post(`api/create-comment/`, body);
+  return res.data;
 }
