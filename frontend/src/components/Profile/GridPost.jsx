@@ -6,7 +6,7 @@ export default function GridPost({ key, url, comments, likes, dislikes }) {
         <p className="text-white text-base font-sans font-semibold block">💩 {dislikes.length}</p>
         <p className="text-white text-base font-sans font-semibold block">💬 {comments.length}</p>
       </div>
-      <div id="Image" style={{ backgroundImage: `url(${url})`, backgroundPosition: "center", backgroundSize: "cover" }} className="image pb-[100%]  relative flex justify-center items-center group-hover:opacity-50 transition-all z-10">
+      <div style={{ backgroundImage: `url(${url})`, backgroundPosition: "center", backgroundSize: "cover" }} className="image pb-[100%]  relative flex justify-center items-center group-hover:opacity-50 transition-all z-10">
       </div>
     </div>
   )
