@@ -3,7 +3,7 @@ import api from './apiConfig.js'
 export default async function likeOrDislike(user_id, post_id, action) {
 
   if (action.like) {
-    const res = await api.post('api/like/', { 'user_id': user_id.userId, 'post_id': post_id.postId })
+    const res = await api.post('api/like/', { 'user_id': user_id.userId, 'post_id': user_id.postId })
     // console.log(res);
     return res.data
 
