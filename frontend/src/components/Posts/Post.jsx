@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { createComment } from '../../api/mainfeed';
+import likeOrDislike from '../../api/like';
 
 export default function Post({ post, onSubmit }) {
   const [comment, setComment] = useState('');
-  const sound = new Audio('/assets/fart.mp3');
+  const [like, setLike] = useState();
+
+  const squeak = new Audio('/assets/squeak.mp3');
+  const fart = new Audio('/assets/fart.mp3');
 
   const timeSignature = new Date(post.created_at);
   const now = new Date();
@@ -23,9 +27,16 @@ export default function Post({ post, onSubmit }) {
     }
   }
 
-  function dislike(e) {
-    sound.play()
+  function likePost() {
+    likeOrDislike(localStorage.getItem('id'), post.id, { 'like': true });
+    squeak.play()
   }
+
+  function dislikePost(e) {
+    likeOrDislike(localStorage.getItem('id'), post.id, { 'like': false });
+    fart.play()
+  }
+
 
   return (
     <div className=" w-3/4 my-6 relative">
@@ -52,8 +63,8 @@ export default function Post({ post, onSubmit }) {
       </div>
       <div className="w-full flex justify-between text-2xl mb-4">
         <div>
-          <div className="hover:cursor-pointer hover:scale-110 active:scale-100 inline-block pr-4">💛</div>
-          <div onClick={dislike} className="hover:cursor-pointer hover:scale-110 active:scale-100 inline-block pr-4">💩</div>
+          <div onClick={likePost} className="hover:cursor-pointer hover:scale-110 active:scale-100 inline-block pr-4">💛</div>
+          <div onClick={dislikePost} className="hover:cursor-pointer hover:scale-110 active:scale-100 inline-block pr-4">💩</div>
           <div className="hover:cursor-pointer hover:scale-110 active:scale-100 inline-block">🔗</div>
         </div>
         <div className="hover:cursor-pointer hover:scale-110 active:scale-100 inline-block">🗃️</div>
