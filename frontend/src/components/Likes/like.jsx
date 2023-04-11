@@ -16,10 +16,10 @@ function LikeDislikeButtons(postId, userId) {
     if (!isLiked) {
       setLikes(likes + 1);
       setIsLiked(true);
-      if (isDisliked) {
-        setDislikes(dislikes - 1);
-        setIsDisliked(false);
-      }
+      //   if (isDisliked) {
+      //     setDislikes(dislikes - 1);
+      //     setIsDisliked(false);
+      //   }
     }
   };
 
@@ -28,10 +28,10 @@ function LikeDislikeButtons(postId, userId) {
     if (!isDisliked) {
       setDislikes(dislikes + 1);
       setIsDisliked(true);
-      if (isLiked) {
-        setLikes(likes - 1);
-        setIsLiked(false);
-      }
+      //   if (isLiked) {
+      //     setLikes(likes - 1);
+      //     setIsLiked(false);
+      //   }
     }
   };
 
