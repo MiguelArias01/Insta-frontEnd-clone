@@ -10,7 +10,7 @@ function Header() {
           <img className="w-[103px] absolute top-5" src="https://res.cloudinary.com/dnld1cqvy/image/upload/v1681157937/logo_w2b8wx.png" alt="Instagram logo" />
         </Link>
         <Link to={`./${localStorage.getItem('username')}`}>
-          <span className="text-3xl absolute top-3 right-4 hover:cursor-pointer">💩</span>
+          <span className="text-3xl absolute top-3 right-4 hover:cursor-pointer hover:scale-110 active:scale-100">💩</span>
         </Link>
       </div>
     </div>
