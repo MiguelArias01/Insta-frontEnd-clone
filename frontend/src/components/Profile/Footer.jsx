@@ -68,7 +68,7 @@ export default function Footer(avatar) {
         <div className="inline-block h-12 p-3 ">
           <Menu>
             <Menu.Button>
-              <img src={avatar.avatar} alt="Avatar" className=" rounded-full w-[24px] h-[24px] border border-slate-200 hover:scale-110 hover:cursor-pointer" />
+              <img src={avatar.avatar ? avatar.avatar : "https://www.dmu.edu/wp-content/uploads/bb-plugin/cache/default-profile-500x500-square.jpg"} alt="Avatar" className=" rounded-full w-[24px] h-[24px] border border-slate-200 hover:scale-110 hover:cursor-pointer" />
             </Menu.Button>
             <Menu.Items className="-top-2 transform -translate-y-full absolute right-14 w-56 origin-top-right bg-white divide-y divide-slate-200 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               <Menu.Item className="block">
