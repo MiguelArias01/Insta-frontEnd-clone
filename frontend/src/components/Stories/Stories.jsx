@@ -16,7 +16,7 @@ function Stories() {
 
   useEffect(() => {
     fetchStories();
-  }, []);
+  }, [stories]);
 
   return (
     <div className=" scrollbar-hide overflow-scroll flex flex-col items-center mt-12 h-auto w-10/12 py-0 pl-12 mx-auto">
